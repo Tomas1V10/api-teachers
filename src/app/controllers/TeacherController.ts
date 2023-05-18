@@ -15,7 +15,7 @@ export class TeacherController {
 
             const { name, description, email, birthDate } = request.body;
             const teacher: Teacher = new Teacher(name, description, email, new Date(birthDate));
-            const createdTeacher = this._teacherRepository.create(teacher);
+            const createdTeacher = await this._teacherRepository.create(teacher);
             return response.status(201).json(createdTeacher);
 
         } catch (error) {
